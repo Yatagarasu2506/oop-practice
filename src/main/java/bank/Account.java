@@ -2,6 +2,7 @@ package bank;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Account {
     private final long id;
@@ -57,4 +58,21 @@ public class Account {
         return List.copyOf(history);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account other = (Account) o;
+        return this.id == other.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Account{id=%d, owner='%s', balance=%d}".formatted(id, owner, balance);
+    }
 }
