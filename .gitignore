@@ -4,8 +4,6 @@ target/
 !**/src/test/**/target/
 .kotlin
 
-### IntelliJ IDEA ###
-./idea
 
 ### Eclipse ###
 .apt_generated
@@ -32,3 +30,4 @@ build/
 ### Mac OS ###
 .DS_Store
 .idea/
+
