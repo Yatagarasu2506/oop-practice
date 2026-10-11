@@ -13,7 +13,7 @@ public class Account {
 
     private static int count = 0;
 
-    Account(String owner) {
+    public Account(String owner) {
         this.id = count;
         if ((owner == null || owner.isBlank())) {
             throw new IllegalArgumentException("Illegal argument: must not be null or blank");
