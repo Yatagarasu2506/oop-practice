@@ -1,9 +1,14 @@
 package bank;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
     private final long id;
     private final String owner;
     private long balance = 0L;
+
+    private final List<Transaction> history;
 
     private static int count = 0;
 
@@ -13,6 +18,7 @@ public class Account {
             throw new IllegalArgumentException("Illegal argument: must not be null or blank");
         }
         this.owner = owner;
+        history = new ArrayList<>();
         count++;
     }
 
@@ -33,6 +39,7 @@ public class Account {
             throw new IllegalArgumentException("Illegal argument: must be greater than zero");
         }
         balance += amount;
+        history.add(new Transaction(TransactionType.DEPOSIT, amount, balance));
     }
 
     public void withdraw(long amount) throws InsufficientFundsException {
@@ -42,10 +49,12 @@ public class Account {
         if(balance - amount < 0) {
             throw new InsufficientFundsException(("Insufficient funds: requested " + amount + ", available " + balance));
         }
-
         balance -= amount;
+        history.add(new Transaction(TransactionType.WITHDRAWAL, amount, balance));
     }
 
-
+    public List<Transaction> getHistory() {
+        return List.copyOf(history);
+    }
 
 }
