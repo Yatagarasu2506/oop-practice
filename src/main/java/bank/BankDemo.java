@@ -1,17 +1,17 @@
 package bank;
 
 public class BankDemo {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Account firstAccount = new Account("Eduard");
         Account secondAccount = new Account("Dylan");
-        System.out.println(firstAccount.toString() + '\n' + secondAccount.toString());
+        System.out.println(firstAccount + "\n" + secondAccount);
 
         long depositExample = 50_000;
-        System.out.printf("Deposit %d into the first account", depositExample);
+        System.out.printf("Deposit %d into the first account%n", depositExample);
         firstAccount.deposit(depositExample);
 
         long withdrawalExample = 30_000;
-        System.out.printf("Trying to withdraw %d", withdrawalExample);
+        System.out.printf("Trying to withdraw %d%n", withdrawalExample);
 
         try {
             firstAccount.withdraw(30_000);

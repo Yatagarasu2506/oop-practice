@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Objects;
 
 public class Account {
+    private static long nextId = 1;
+
     private final long id;
     private final String owner;
-    private long balance = 0L;
+    private long balance;
 
-    private final List<Transaction> history;
-
-    private static long nextId = 1;
+    private final List<Transaction> history = new ArrayList<>();
 
     public Account(String owner) {
         this.id = nextId;
@@ -19,7 +19,6 @@ public class Account {
             throw new IllegalArgumentException("Owner must not be null or blank");
         }
         this.owner = owner;
-        history = new ArrayList<>();
         nextId++;
     }
 
@@ -43,7 +42,7 @@ public class Account {
 
     public void withdraw(long amount) throws InsufficientFundsException {
         validateAmount(amount);
-        if(balance < amount) {
+        if (balance < amount) {
             throw new InsufficientFundsException(("Requested " + amount + ", available " + balance));
         }
         balance -= amount;
@@ -55,7 +54,7 @@ public class Account {
     }
 
     private void validateAmount(long amount) {
-        if(amount <= 0) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be greater than zero, got " + amount);
         }
     }
