@@ -11,16 +11,16 @@ public class Account {
 
     private final List<Transaction> history;
 
-    private static int count = 1;
+    private static long nextId = 1;
 
     public Account(String owner) {
-        this.id = count;
+        this.id = nextId;
         if ((owner == null || owner.isBlank())) {
             throw new IllegalArgumentException("Illegal argument: must not be null or blank");
         }
         this.owner = owner;
         history = new ArrayList<>();
-        count++;
+        nextId++;
     }
 
     public long getId() {
