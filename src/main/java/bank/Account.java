@@ -11,7 +11,7 @@ public class Account {
 
     private final List<Transaction> history;
 
-    private static int count = 0;
+    private static int count = 1;
 
     public Account(String owner) {
         this.id = count;
