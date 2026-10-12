@@ -14,7 +14,7 @@ public class BankDemo {
         System.out.printf("Trying to withdraw %d%n", withdrawalExample);
 
         try {
-            firstAccount.withdraw(30_000);
+            firstAccount.withdraw(withdrawalExample);
         } catch (InsufficientFundsException e) {
             System.out.println(e.getMessage());
         }
