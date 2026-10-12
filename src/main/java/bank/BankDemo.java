@@ -34,6 +34,10 @@ public class BankDemo {
 
         //Trying to modify fixed-size List (copyOf)
         System.out.println("Trying to modify history outside Account class: ");
-        firstAccount.getHistory().add(new Transaction(TransactionType.DEPOSIT, 100_000, 200_000));
+        try {
+            firstAccount.getHistory().add(new Transaction(TransactionType.DEPOSIT, 100_000, 200_000));
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Tried to modify fixed-size List");
+        }
     }
 }
