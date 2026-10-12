@@ -1,8 +1,4 @@
-package org.example;
-import bank.Account;
-import bank.InsufficientFundsException;
-import bank.Transaction;
-import bank.TransactionType;
+package bank;
 
 
 public class BankDemo {
