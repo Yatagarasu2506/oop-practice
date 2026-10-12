@@ -1,8 +1,5 @@
 package bank;
 
-
-import java.sql.SQLOutput;
-
 public class BankDemo {
     public static void main(String[] args){
         Account firstAccount = new Account("Eduard");
