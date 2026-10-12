@@ -43,7 +43,7 @@ public class Account {
 
     public void withdraw(long amount) throws InsufficientFundsException {
         validateAmount(amount);
-        if(balance - amount < 0) {
+        if(balance < amount) {
             throw new InsufficientFundsException(("Requested " + amount + ", available " + balance));
         }
         balance -= amount;
