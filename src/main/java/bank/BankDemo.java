@@ -1,13 +1,20 @@
 package bank;
 
 
+import java.sql.SQLOutput;
+
 public class BankDemo {
     public static void main(String[] args){
         Account firstAccount = new Account("Eduard");
         Account secondAccount = new Account("Dylan");
         System.out.println(firstAccount.toString() + '\n' + secondAccount.toString());
 
-        firstAccount.deposit(50_000);
+        long depositExample = 50_000;
+        System.out.printf("Deposit %d into the first account", depositExample);
+        firstAccount.deposit(depositExample);
+
+        long withdrawalExample = 30_000;
+        System.out.printf("Trying to withdraw %d", withdrawalExample);
 
         try {
             firstAccount.withdraw(30_000);
@@ -15,7 +22,9 @@ public class BankDemo {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(firstAccount.getBalance());
+        System.out.println("Balance after withdrawal: " + firstAccount.getBalance());
+
+        System.out.println("Trying to withdraw more than the account balance: ");
 
         try {
             firstAccount.withdraw(60_000);
@@ -23,10 +32,11 @@ public class BankDemo {
             System.out.println(e.getMessage());
         }
 
-        System.out.println(firstAccount.getBalance());
-        System.out.println(firstAccount.getHistory());
+        System.out.println("Balance after: " + firstAccount.getBalance());
+        System.out.println("Transaction history: " + '\n' + firstAccount.getHistory());
 
         //Trying to modify fixed-size List (copyOf)
+        System.out.println("Trying to modify history outside Account class: ");
         firstAccount.getHistory().add(new Transaction(TransactionType.DEPOSIT, 100_000, 200_000));
     }
 }
