@@ -1,6 +1,8 @@
 package org.example;
 import bank.Account;
 import bank.InsufficientFundsException;
+import bank.Transaction;
+import bank.TransactionType;
 
 
 public class BankDemo {
@@ -27,5 +29,8 @@ public class BankDemo {
 
         System.out.println(firstAccount.getBalance());
         System.out.println(firstAccount.getHistory());
+
+        //Trying to modify fixed-size List (copyOf)
+        firstAccount.getHistory().add(new Transaction(TransactionType.DEPOSIT, 100_000, 200_000));
     }
 }
