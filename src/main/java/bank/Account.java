@@ -16,7 +16,7 @@ public class Account {
     public Account(String owner) {
         this.id = nextId;
         if ((owner == null || owner.isBlank())) {
-            throw new IllegalArgumentException("Illegal argument: must not be null or blank");
+            throw new IllegalArgumentException("Owner must not be null or blank");
         }
         this.owner = owner;
         history = new ArrayList<>();
@@ -36,19 +36,15 @@ public class Account {
     }
 
     public void deposit(long amount) {
-        if(amount <= 0) {
-            throw new IllegalArgumentException("Illegal argument: must be greater than zero");
-        }
+        validateAmount(amount);
         balance += amount;
         history.add(new Transaction(TransactionType.DEPOSIT, amount, balance));
     }
 
     public void withdraw(long amount) throws InsufficientFundsException {
-        if(amount <= 0) {
-            throw new IllegalArgumentException("Illegal argument: must be greater than zero");
-        }
+        validateAmount(amount);
         if(balance - amount < 0) {
-            throw new InsufficientFundsException(("Insufficient funds: requested " + amount + ", available " + balance));
+            throw new InsufficientFundsException(("Requested " + amount + ", available " + balance));
         }
         balance -= amount;
         history.add(new Transaction(TransactionType.WITHDRAWAL, amount, balance));
@@ -56,6 +52,12 @@ public class Account {
 
     public List<Transaction> getHistory() {
         return List.copyOf(history);
+    }
+
+    private void validateAmount(long amount) {
+        if(amount <= 0) {
+            throw new IllegalArgumentException("Amount must be greater than zero, got " + amount);
+        }
     }
 
     @Override
