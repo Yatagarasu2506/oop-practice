@@ -27,6 +27,6 @@ public abstract class Employee {
 
     @Override
     public String toString() {
-        return "%s{id='%d', name='%s', pay='%d'}".formatted(getClass().getSimpleName(), id, name, calculateMonthlyPay());
+        return "%s{id=%d, name='%s', pay=%d}".formatted(getClass().getSimpleName(), id, name, calculateMonthlyPay());
     }
 }
