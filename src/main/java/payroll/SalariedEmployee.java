@@ -15,6 +15,7 @@ public class SalariedEmployee extends Employee {
         return monthlySalary;
     }
 
+    @Override
     public long calculateMonthlyPay() {
         return monthlySalary;
     }

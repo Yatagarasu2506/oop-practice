@@ -30,6 +30,7 @@ public class HourlyEmployee extends Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    @Override
     public long calculateMonthlyPay() {
         if (hoursWorked > REGULAR_HOURS) {
             long overtimePay = (hoursWorked - REGULAR_HOURS) * hourlyRate * 3 / 2;
