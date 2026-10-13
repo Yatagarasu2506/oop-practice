@@ -7,7 +7,7 @@ public class HourlyEmployee extends Employee {
     private final long hourlyRate;
     private int hoursWorked;
 
-    HourlyEmployee(String name, long hourlyRate) {
+    public HourlyEmployee(String name, long hourlyRate) {
         super(name);
         if (hourlyRate <= 0) {
             throw new IllegalArgumentException("Hourly rate must be greater than zero, got " + hourlyRate);
