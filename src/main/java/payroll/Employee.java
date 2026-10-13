@@ -3,7 +3,7 @@ package payroll;
 public abstract class Employee {
     private static long nextId = 1;
 
-    private long id;
+    private final long id;
     private final String name;
 
     protected Employee(String name) {
