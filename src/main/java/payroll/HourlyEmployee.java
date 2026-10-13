@@ -1,8 +1,8 @@
 package payroll;
 
 public class HourlyEmployee extends Employee {
-    private final int REGULAR_HOURS = 160;
-    private final int MAX_HOURS = 744;
+    private static final int REGULAR_HOURS = 160;
+    private static final int MAX_HOURS = 744;
 
     private final long hourlyRate;
     private int hoursWorked;
