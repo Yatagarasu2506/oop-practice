@@ -18,10 +18,6 @@ public class Payroll {
     }
 
     public long calculateTotalPayroll() {
-        if (employees.isEmpty()) {
-            return 0;
-        }
-
         long temp = 0;
         for (Employee employee : employees) {
             temp += employee.calculateMonthlyPay();
