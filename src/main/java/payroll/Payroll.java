@@ -1,0 +1,45 @@
+package payroll;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Payroll {
+    private final List<Employee> employees = new ArrayList<>();
+
+    public void addEmployee(Employee employee) {
+        if (employee == null) {
+            throw new IllegalArgumentException("Employee must not be null!");
+        }
+        employees.add(employee);
+    }
+
+    public List<Employee> getEmployees() {
+        return List.copyOf(employees);
+    }
+
+    public long calculateTotalPayroll() {
+        long total = 0;
+        for (Employee employee : employees) {
+            total += employee.calculateMonthlyPay();
+        }
+        return total;
+    }
+
+    public Employee findHighestPaid() {
+        if (employees.isEmpty()) {
+            throw new IllegalStateException("No employees");
+        }
+        Employee highestPaid = employees.getFirst();
+        long max = highestPaid.calculateMonthlyPay();
+
+        for (Employee employee : employees) {
+            long monthlyPay = employee.calculateMonthlyPay();
+
+            if (monthlyPay > max) {
+                max = monthlyPay;
+                highestPaid = employee;
+            }
+        }
+        return highestPaid;
+    }
+}
