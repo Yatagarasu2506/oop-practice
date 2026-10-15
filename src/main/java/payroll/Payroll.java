@@ -18,11 +18,11 @@ public class Payroll {
     }
 
     public long calculateTotalPayroll() {
-        long temp = 0;
+        long total = 0;
         for (Employee employee : employees) {
-            temp += employee.calculateMonthlyPay();
+            total += employee.calculateMonthlyPay();
         }
-        return temp;
+        return total;
     }
 
     public Employee findHighestPaid() {
