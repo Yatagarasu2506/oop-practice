@@ -33,13 +33,13 @@ public class PayrollDemo {
         try {
             secondEmployee.setHoursWorked(800);
         } catch (IllegalArgumentException e) {
-            System.out.println("Result of setting 800 hours worked to hourly employee:\n" + e.getMessage());
+            System.out.println("Result of setting 800 hours worked for an hourly employee:\n" + e.getMessage());
         }
 
         try {
             new SalariedEmployee("X", 0);
         } catch (IllegalArgumentException e) {
-            System.out.println("Result of creating salaried employee who's monthly salary equals 0:\n" + e.getMessage());
+            System.out.println("Result of creating salaried employee whose monthly salary equals 0:\n" + e.getMessage());
         }
     }
 }
