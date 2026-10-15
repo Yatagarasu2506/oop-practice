@@ -33,8 +33,9 @@ public class Payroll {
         if (employees.isEmpty()) {
             throw new IllegalStateException("No employees");
         }
-        long max = 0;
-        Employee highestPaid = null;
+        Employee highestPaid = employees.getFirst();
+        long max = highestPaid.calculateMonthlyPay();
+
         for (Employee employee : employees) {
             long monthlyPay = employee.calculateMonthlyPay();
 
