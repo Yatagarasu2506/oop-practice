@@ -8,9 +8,9 @@ public class PayrollDemo {
         CommissionEmployee thirdEmployee = new CommissionEmployee("Kasia", 400_000, 10);
         thirdEmployee.setSalesAmount(2_000_000);
 
-        System.out.println("First employee:\n" + firstEmployee.toString());
-        System.out.println("Second employee:\n" + secondEmployee.toString());
-        System.out.println("Third employee:\n" + thirdEmployee.toString());
+        System.out.println("First employee:\n" + firstEmployee);
+        System.out.println("Second employee:\n" + secondEmployee);
+        System.out.println("Third employee:\n" + thirdEmployee);
 
         Payroll payroll = new Payroll();
         payroll.addEmployee(firstEmployee);
