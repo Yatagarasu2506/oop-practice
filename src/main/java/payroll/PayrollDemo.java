@@ -37,7 +37,7 @@ public class PayrollDemo {
         }
 
         try {
-            SalariedEmployee demoEmployee = new SalariedEmployee("X", 0);
+            new SalariedEmployee("X", 0);
         } catch (IllegalArgumentException e) {
             System.out.println("Result of creating salaried employee who's monthly salary equals 0:\n" + e.getMessage());
         }
