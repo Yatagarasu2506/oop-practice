@@ -6,8 +6,8 @@ public class CommissionEmployee extends SalariedEmployee {
     private final int commissionPercent;
     private long salesAmount;
 
-    public CommissionEmployee(String name, long monthSalary, int commissionPercent) {
-        super(name, monthSalary);
+    public CommissionEmployee(String name, long monthlySalary, int commissionPercent) {
+        super(name, monthlySalary);
         if (commissionPercent < COMMISSION_PERCENT_MIN || commissionPercent > COMMISSION_PERCENT_MAX) {
             throw new IllegalArgumentException("Commission percent must be between 1 and 50 (inclusive), got " + commissionPercent);
         }
