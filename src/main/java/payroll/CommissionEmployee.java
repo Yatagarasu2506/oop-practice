@@ -1,12 +1,14 @@
 package payroll;
 
 public class CommissionEmployee extends SalariedEmployee {
+    private static final int COMMISSION_PERCENT_MIN = 1;
+    private static final int COMMISSION_PERCENT_MAX = 50;
     private final int commissionPercent;
     private long salesAmount;
 
     public CommissionEmployee(String name, long monthSalary, int commissionPercent) {
         super(name, monthSalary);
-        if (commissionPercent < 1 || commissionPercent > 50) {
+        if (commissionPercent < COMMISSION_PERCENT_MIN || commissionPercent > COMMISSION_PERCENT_MAX) {
             throw new IllegalArgumentException("Commission percent must between 1 and 50 (inclusive), got " + commissionPercent);
         }
         this.commissionPercent = commissionPercent;
