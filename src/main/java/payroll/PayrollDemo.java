@@ -2,20 +2,20 @@ package payroll;
 
 public class PayrollDemo {
     public static void main(String[] args) {
-        SalariedEmployee firstEmployee = new SalariedEmployee("Anna", 800_000);
-        HourlyEmployee secondEmployee = new HourlyEmployee("Piotr", 5_000);
-        secondEmployee.setHoursWorked(170);
-        CommissionEmployee thirdEmployee = new CommissionEmployee("Kasia", 400_000, 10);
-        thirdEmployee.setSalesAmount(2_000_000);
+        SalariedEmployee salaried = new SalariedEmployee("Anna", 800_000);
+        HourlyEmployee hourly = new HourlyEmployee("Piotr", 5_000);
+        hourly.setHoursWorked(170);
+        CommissionEmployee commission = new CommissionEmployee("Kasia", 400_000, 10);
+        commission.setSalesAmount(2_000_000);
 
-        System.out.println("First employee:\n" + firstEmployee);
-        System.out.println("Second employee:\n" + secondEmployee);
-        System.out.println("Third employee:\n" + thirdEmployee);
+        System.out.println("First employee:\n" + salaried);
+        System.out.println("Second employee:\n" + hourly);
+        System.out.println("Third employee:\n" + commission);
 
         Payroll payroll = new Payroll();
-        payroll.addEmployee(firstEmployee);
-        payroll.addEmployee(secondEmployee);
-        payroll.addEmployee(thirdEmployee);
+        payroll.addEmployee(salaried);
+        payroll.addEmployee(hourly);
+        payroll.addEmployee(commission);
 
 
         System.out.println("Total payroll: " + payroll.calculateTotalPayroll());
@@ -31,7 +31,7 @@ public class PayrollDemo {
         }
 
         try {
-            secondEmployee.setHoursWorked(800);
+            hourly.setHoursWorked(800);
         } catch (IllegalArgumentException e) {
             System.out.println("Result of setting 800 hours worked for an hourly employee:\n" + e.getMessage());
         }
