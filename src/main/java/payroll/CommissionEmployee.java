@@ -9,7 +9,7 @@ public class CommissionEmployee extends SalariedEmployee {
     public CommissionEmployee(String name, long monthSalary, int commissionPercent) {
         super(name, monthSalary);
         if (commissionPercent < COMMISSION_PERCENT_MIN || commissionPercent > COMMISSION_PERCENT_MAX) {
-            throw new IllegalArgumentException("Commission percent must between 1 and 50 (inclusive), got " + commissionPercent);
+            throw new IllegalArgumentException("Commission percent must be between 1 and 50 (inclusive), got " + commissionPercent);
         }
         this.commissionPercent = commissionPercent;
     }
