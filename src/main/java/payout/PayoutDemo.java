@@ -1,5 +1,6 @@
 package payout;
 
+import org.w3c.dom.ls.LSOutput;
 import payroll.CommissionEmployee;
 import payroll.HourlyEmployee;
 import payroll.Payroll;
@@ -27,7 +28,8 @@ public class PayoutDemo {
         PaymentGateway consolePaymentGateway = new ConsolePaymentGateway();
 
         PayoutService consolePayout = new PayoutService(payroll, consolePaymentGateway, consoleNotifier);
-        System.out.println("=== Scenario 1 ===\n" + consolePayout.payAll());
+        System.out.println("=== Scenario 1 ===");
+        System.out.println(consolePayout.payAll());
 
         PaymentGateway limitedPaymentGateway = new LimitedPaymentGateway(850_000);
         InMemoryNotifier inMemoryNotifier = new InMemoryNotifier();
