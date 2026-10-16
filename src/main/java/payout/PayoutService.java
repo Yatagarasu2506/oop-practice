@@ -29,8 +29,6 @@ public class PayoutService {
                 notifier.send("Skipped %s: nothing to pay".formatted(name));
                 skippedCount++;
             } else {
-                boolean succesfull = gateway.transfer(employee.getId(), pay);
-                if (succesfull) {
                 boolean transferred = gateway.transfer(employee.getId(), pay);
                 if (transferred) {
                     notifier.send("Paid %d to %s".formatted(pay, name));
