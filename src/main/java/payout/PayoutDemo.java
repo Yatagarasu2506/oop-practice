@@ -26,14 +26,14 @@ public class PayoutDemo {
         Notifier consoleNotifier = new ConsoleNotifier();
         PaymentGateway consolePaymentGateway = new ConsolePaymentGateway();
 
-        PayoutService payout = new PayoutService(payroll, consolePaymentGateway, consoleNotifier);
-        System.out.println("=== Scenario 1 ===\n" + payout.payAll());
+        PayoutService consolePayout = new PayoutService(payroll, consolePaymentGateway, consoleNotifier);
+        System.out.println("=== Scenario 1 ===\n" + consolePayout.payAll());
 
         PaymentGateway limitedPaymentGateway = new LimitedPaymentGateway(850_000);
         InMemoryNotifier inMemoryNotifier = new InMemoryNotifier();
 
-        PayoutService payoutFake = new PayoutService(payroll, limitedPaymentGateway, inMemoryNotifier);
-        System.out.println("=== Scenario 2 ===\n" + payoutFake.payAll());
+        PayoutService limitedPayout = new PayoutService(payroll, limitedPaymentGateway, inMemoryNotifier);
+        System.out.println("=== Scenario 2 ===\n" + limitedPayout.payAll());
         for (String message : inMemoryNotifier.getMessages()) {
             System.out.println(message);
         }
@@ -51,8 +51,8 @@ public class PayoutDemo {
             System.out.println(e.getMessage());
         }
 
-        Payroll testPayroll = new Payroll();
-        PayoutService testPayoutService = new PayoutService(testPayroll, consolePaymentGateway, consoleNotifier);
-        System.out.println(testPayoutService.payAll());
+        Payroll emptyPayroll = new Payroll();
+        PayoutService emptyPayout = new PayoutService(emptyPayroll, consolePaymentGateway, consoleNotifier);
+        System.out.println(emptyPayout.payAll());
     }
 }
