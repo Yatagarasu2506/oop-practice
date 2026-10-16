@@ -34,7 +34,9 @@ public class PayoutDemo {
 
         PayoutService payoutFake = new PayoutService(payroll, limitedPaymentGateway, inMemoryNotifier);
         System.out.println("=== Scenario 2 ===\n" + payoutFake.payAll());
-        System.out.println(inMemoryNotifier.getMessages());
+        for (String message : inMemoryNotifier.getMessages()) {
+            System.out.println(message);
+        }
 
         System.out.println("=== Scenario 3 ===");
         try {
