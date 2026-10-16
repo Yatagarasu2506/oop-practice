@@ -18,7 +18,9 @@ public class PayoutService {
     }
 
     public PayoutReport payAll() {
-        int paidCount = 0, failedCount = 0, skippedCount = 0;
+        int paidCount = 0;
+        int failedCount = 0;
+        int skippedCount = 0;
         long paidTotal = 0;
         List<Employee> employees = payroll.getEmployees();
 
