@@ -51,6 +51,6 @@ public class PayoutDemo {
 
         Payroll testPayroll = new Payroll();
         PayoutService testPayoutService = new PayoutService(testPayroll, consolePaymentGateway, consoleNotifier);
-        System.out.println(payoutFake.payAll());
+        System.out.println(testPayoutService.payAll());
     }
 }
