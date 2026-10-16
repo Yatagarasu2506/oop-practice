@@ -13,7 +13,7 @@ public class PayoutService {
 
     public PayoutService(Payroll payroll, PaymentGateway gateway, Notifier notifier) {
         this.payroll = Objects.requireNonNull(payroll, "Payroll must not be null");
-        this.gateway = Objects.requireNonNull(gateway, "Gateway must not be null");
+        this.gateway = Objects.requireNonNull(gateway, "Payment gateway must not be null");
         this.notifier = Objects.requireNonNull(notifier, "Notifier must not be null");
     }
 
