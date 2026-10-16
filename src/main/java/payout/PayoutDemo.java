@@ -38,7 +38,7 @@ public class PayoutDemo {
 
         System.out.println("=== Scenario 3 ===");
         try {
-            PayoutService payoutService = new PayoutService(payroll, null, consoleNotifier);
+            new PayoutService(payroll, null, consoleNotifier);
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
