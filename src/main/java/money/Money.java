@@ -81,11 +81,8 @@ public final class Money implements Comparable<Money> {
         if (currency.getFractionDigits() == 0) {
             return "%d %s".formatted(amount, currency);
         }
-
         long wholePart = amount / currency.getMinorUnitsPerMajor();
         long fractionalPart = amount % currency.getMinorUnitsPerMajor();
-
-
         return "%d.%02d %s".formatted(wholePart, fractionalPart, currency);
     }
 
