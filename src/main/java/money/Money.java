@@ -52,10 +52,10 @@ public final class Money implements Comparable<Money> {
 
     public Money multiply(int factor) {
         if (factor < 0) {
-            throw new IllegalArgumentException("Factor must must not be negtive, got " + factor);
+            throw new IllegalArgumentException("Factor must not be negative, got " + factor);
         }
         long total = this.amount * factor;
-        return of(amount, this.currency);
+        return of(total, this.currency);
     }
 
     @Override
