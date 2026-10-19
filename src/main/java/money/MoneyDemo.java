@@ -29,7 +29,7 @@ public class MoneyDemo {
         System.out.println(salary);
 
         System.out.println("=== Equality ===");
-        Money a = Money.of(10_000, Currency.PLN), b = Money.of(10_000, Currency.PLN), c = Money.of(10_000, Currency.PLN);
+        Money a = Money.of(10_000, Currency.PLN), b = Money.of(10_000, Currency.PLN), c = Money.of(10_000, Currency.EUR);
         System.out.println("a == b: " + (a == b));
         System.out.println("a.equals(b): " + a.equals(b));
         System.out.println("a.equals(c): " + a.equals(c));
