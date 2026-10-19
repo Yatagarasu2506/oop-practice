@@ -32,12 +32,12 @@ public class MoneyDemo {
         Money a = Money.of(10_000, Currency.PLN), b = Money.of(10_000, Currency.PLN), c = Money.of(10_000, Currency.PLN);
         System.out.println("a == b: " + (a == b));
         System.out.println("a.equals(b): " + a.equals(b));
-        System.out.println("a.equals(c)" + a.equals(c));
+        System.out.println("a.equals(c): " + a.equals(c));
         System.out.println("same hashCode: " + (a.hashCode() == b.hashCode()));
         Set<Money> set = new HashSet<>();
         set.add(a);
         set.add(b);
-        System.out.println(set.size());
+        System.out.println("size: " + set.size());
 
         System.out.println("=== Sorting ===");
         List<Money> money = new ArrayList<>();
