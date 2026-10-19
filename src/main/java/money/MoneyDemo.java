@@ -37,7 +37,7 @@ public class MoneyDemo {
         Set<Money> set = new HashSet<>();
         set.add(a);
         set.add(b);
-        System.out.println("size: " + set.size());
+        System.out.println("set size: " + set.size());
 
         System.out.println("=== Sorting ===");
         List<Money> money = new ArrayList<>();
